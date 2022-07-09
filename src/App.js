@@ -18,6 +18,9 @@ function App() {
     setPlayer(!player)
   }
   const winner = caculateWinner(board)
+  const handleResetGame = ()=>{
+    setBoard(Array(9).fill(null))
+  }
   return (
     <Container>
       {winner ? <h3> Win: {winner} </h3> : null}
@@ -25,7 +28,7 @@ function App() {
       {board.map((item, index) => <Square value={item} handleClick={handleClick} winnerGame={winner} index={index} key={index}/>)}
     </Board>
     <div>
-      <a href='/'>Reset</a>
+    <button onClick={handleResetGame}>Reset game</button>
     </div>
     </Container>
   );
